@@ -37,6 +37,7 @@ function createWebsocketMiddleware (propertyName = 'ws', options) {
         wss.handleUpgrade(ctx.req, ctx.request.socket, Buffer.alloc(0), resolve)
         ctx.respond = false
       })
+      ctx.wss = wss;
     }
 
     await next()
